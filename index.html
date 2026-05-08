@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Patrick Onuoha Jr — Data Scientist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Lora:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0c0c0e;
+      --surface: #141416;
+      --border: #222228;
+      --accent: #e8d5a3;
+      --accent2: #7eb8c9;
+      --text: #e2e2e8;
+      --muted: #6b6b7a;
+      --tag-bg: #1a1a20;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Mono', monospace;
+      font-size: 14px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* NOISE OVERLAY */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.4;
+    }
+
+    /* LAYOUT */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+      background: rgba(12, 12, 14, 0.88);
+      backdrop-filter: blur(12px);
+    }
+
+    nav .inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    /* HERO */
+    .hero {
+      padding: 140px 0 80px;
+      border-bottom: 1px solid var(--border);
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(42px, 7vw, 78px);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .hero h1 span { color: var(--accent); }
+
+    .hero-sub {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 32px;
+      margin-top: 12px;
+    }
+
+    .hero-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .contact-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 12px;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      transition: all 0.2s;
+    }
+
+    .contact-chip:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* SECTION */
+    section {
+      padding: 72px 0;
+      border-bottom: 1px solid var(--border);
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* EDUCATION */
+    .edu-block {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px 24px;
+      align-items: start;
+    }
+
+    .edu-degree {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      color: var(--text);
+    }
+
+    .edu-school {
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .edu-meta {
+      text-align: right;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      color: var(--accent);
+      font-size: 11px;
+      padding: 2px 10px;
+      border-radius: 2px;
+      margin-top: 6px;
+      letter-spacing: 0.04em;
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 2px;
+    }
+
+    .skill-group {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 20px;
+    }
+
+    .skill-group-label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .skill-group p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    /* PROJECTS */
+    .project {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      padding: 28px 28px 24px;
+      margin-bottom: 2px;
+      transition: border-color 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: var(--accent);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .project:hover { border-color: #333; }
+    .project:hover::before { opacity: 1; }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 6px;
+    }
+
+    .project-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--text);
+    }
+
+    .project-date {
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+      font-style: italic;
+    }
+
+    .project-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .tag {
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      color: var(--accent2);
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 2px;
+      letter-spacing: 0.06em;
+    }
+
+    .project ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .project ul li {
+      color: var(--muted);
+      font-size: 13px;
+      padding: 5px 0;
+      padding-left: 16px;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .project ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 11px;
+    }
+
+    /* EXPERIENCE */
+    .experience {
+      margin-bottom: 48px;
+    }
+
+    .experience:last-child { margin-bottom: 0; }
+
+    .exp-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .exp-company {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--text);
+    }
+
+    .exp-location {
+      font-size: 12px;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .exp-role {
+      font-style: italic;
+      color: var(--accent);
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .exp-date {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .exp-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .exp-list li {
+      color: var(--muted);
+      font-size: 13px;
+      padding: 4px 0;
+      padding-left: 16px;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .exp-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--border);
+      font-size: 11px;
+      top: 6px;
+    }
+
+    /* LEADERSHIP */
+    .leadership-block {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      padding: 24px;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 48px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    footer a { color: var(--accent); text-decoration: none; }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    section:nth-child(2) { animation-delay: 0.1s; }
+    section:nth-child(3) { animation-delay: 0.2s; }
+    section:nth-child(4) { animation-delay: 0.3s; }
+    section:nth-child(5) { animation-delay: 0.4s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .edu-block, .exp-header, .leadership-block { grid-template-columns: 1fr; }
+      .edu-meta, .exp-location { text-align: left; }
+      .hero { padding: 110px 0 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="inner">
+    <div class="nav-logo">POJ</div>
+    <ul class="nav-links">
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="hero-eyebrow">Data Scientist · Engineer · Builder</p>
+    <h1>Patrick<br><span>Onuoha Jr</span></h1>
+    <p class="hero-sub">Turning data into decisions — and models into products.</p>
+    <div class="hero-contact">
+      <a href="mailto:ponuoha2017@gmail.com" class="contact-chip">✉ ponuoha2017@gmail.com</a>
+      <a href="tel:2149002568" class="contact-chip">✆ (214) 900-2568</a>
+      <a href="https://linkedin.com/in/patrickonuohajr/" target="_blank" class="contact-chip">↗ LinkedIn</a>
+      <a href="https://github.com/PatrickOnuohaJr" target="_blank" class="contact-chip">⌥ GitHub</a>
+    </div>
+  </div>
+
+  <!-- EDUCATION -->
+  <section>
+    <div class="section-label">Education</div>
+    <div class="edu-block">
+      <div>
+        <div class="edu-degree">B.S. Data Science — Minor in Business Analytics</div>
+        <div class="edu-school">University of North Texas, Denton, TX</div>
+        <div style="margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap;">
+          <span class="badge">Major GPA 3.8</span>
+          <span class="badge">Dean's List</span>
+          <span class="badge">President's List</span>
+          <span class="badge">Tableau Specialist</span>
+        </div>
+      </div>
+      <div class="edu-meta">
+        <div>Graduated</div>
+        <div style="color: var(--text); font-weight: 600;">Dec 2025</div>
+        <div style="margin-top: 4px;">Cumulative GPA</div>
+        <div style="color: var(--text);">3.37</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-label">Technical Skills</div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-label">Languages</div>
+        <p>Python · SQL · R · C++</p>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">ML / Libraries</div>
+        <p>Pandas · NumPy · Scikit-Learn · XGBoost · SHAP · TensorFlow · Streamlit</p>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Cloud & Data</div>
+        <p>Databricks · Snowflake · AWS SageMaker · AWS S3 · boto3 · SSMS</p>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Visualization</div>
+        <p>Power BI · Tableau · Matplotlib · Seaborn</p>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Dev Tools</div>
+        <p>Git / GitHub · VS Code · Jupyter · RStudio</p>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Certifications</div>
+        <p>Tableau Specialist · UNT Data Analytics Track</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-label">Technical Projects</div>
+
+    <div class="project">
+      <div class="project-header">
+        <div class="project-title">MetroCity Bike Share Optimization</div>
+        <div class="project-date">Aug – Dec 2025</div>
+      </div>
+      <div class="project-stack">
+        <span class="tag">Databricks</span><span class="tag">Snowflake</span>
+        <span class="tag">AWS SageMaker</span><span class="tag">AWS S3</span>
+        <span class="tag">PySpark</span><span class="tag">XGBoost</span>
+        <span class="tag">Python</span><span class="tag">SQL</span>
+      </div>
+      <ul>
+        <li>Built Bronze→Silver→Gold medallion pipeline in Databricks processing 700K+ MetroBike trips across 14 campus kiosks.</li>
+        <li>Engineered hourly Gold layer metrics (net_flow, imbalance_ratio, is_peak) per kiosk for operational analysis and ML.</li>
+        <li>Configured AWS S3 + IAM permissions; deployed XGBoost demand forecasting model in SageMaker via boto3.</li>
+        <li>ML feature importance confirmed month (59.6%) and hour (27.6%) as top demand drivers, validating reset timing as a key lever.</li>
+        <li>A/B simulation across 3 levers reduced unavailability from 8.75% → 3.38% (zero CapEx), recovering ~16,400 trips annually.</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <div class="project-header">
+        <div class="project-title">Customer Churn Prediction System</div>
+        <div class="project-date">Jan 2025 – Apr 2026</div>
+      </div>
+      <div class="project-stack">
+        <span class="tag">Python</span><span class="tag">XGBoost</span>
+        <span class="tag">SHAP</span><span class="tag">Scikit-Learn</span>
+        <span class="tag">SMOTE</span><span class="tag">Streamlit</span>
+        <span class="tag">GitHub</span>
+      </div>
+      <ul>
+        <li>Built end-to-end churn prediction system on 7,032 telecom customers — ROC-AUC 0.841, F1 0.618 via tuned XGBoost with 5-fold stratified cross-validation.</li>
+        <li>Applied SMOTE for linear models and scale_pos_weight for XGBoost to handle class imbalance; GridSearchCV tuning across all three model baselines.</li>
+        <li>Implemented SHAP explainability — month-to-month contract (+0.69) and short tenure (+0.85) identified as dominant churn drivers.</li>
+        <li>Deployed live Streamlit app with real-time churn risk scoring, three-tier classification, and dynamic SHAP explanations.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-label">Professional Experience</div>
+
+    <div class="experience">
+      <div class="exp-header">
+        <div class="exp-company">Intel Corporation</div>
+        <div class="exp-location">Remote</div>
+      </div>
+      <div class="exp-role">Energy Sustainability Intern</div>
+      <div class="exp-date">May 2023 – Aug 2023</div>
+      <ul class="exp-list">
+        <li>Created executive-facing dashboards evaluating energy consumption and identifying $500,000 in cost-saving opportunities.</li>
+        <li>Designed algorithms that optimized data center operations, reducing energy use by 20%.</li>
+        <li>Collaborated with cross-functional leaders to integrate sustainability metrics into corporate strategy.</li>
+      </ul>
+    </div>
+
+    <div class="experience">
+      <div class="exp-header">
+        <div class="exp-company">Freight Breakers LLC</div>
+        <div class="exp-location">Southlake, TX</div>
+      </div>
+      <div class="exp-role">IT Operations & Data Systems Supervisor</div>
+      <div class="exp-date">Nov 2021 – Jan 2023</div>
+      <ul class="exp-list">
+        <li>Administered enterprise data systems and analytics dashboards tracking logistics KPIs across multiple warehouses.</li>
+        <li>Led analytics initiatives that reduced error rates by 15% and optimized resource allocation.</li>
+        <li>Oversaw network-linked devices and inventory systems, ensuring 99.8% uptime during leadership transitions.</li>
+        <li>Mentored junior analysts on data governance, SQL queries, and BI dashboarding.</li>
+      </ul>
+    </div>
+
+    <div class="experience">
+      <div class="exp-header">
+        <div class="exp-company">Independent Contractor</div>
+        <div class="exp-location"></div>
+      </div>
+      <div class="exp-role">Data & Business Intelligence Analyst</div>
+      <div class="exp-date">Jan 2018 – Oct 2020</div>
+      <ul class="exp-list">
+        <li>Developed automated Excel and SQL reporting pipelines for small businesses, improving data accuracy and turnaround time.</li>
+        <li>Built custom KPI dashboards in Power BI and Tableau to support financial and operational decision-making.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP -->
+  <section>
+    <div class="section-label">Leadership & Community</div>
+    <div class="leadership-block">
+      <div>
+        <div class="exp-company">Nigerian Student Organization — UNT</div>
+        <div class="exp-role" style="margin-top: 4px;">Treasurer</div>
+        <ul class="exp-list" style="margin-top: 12px;">
+          <li>Managed $10K+ annual budget, delivering financial reports and ensuring transparent accounting.</li>
+          <li>Negotiated vendor contracts, optimizing event budgets and cutting costs by 25%.</li>
+        </ul>
+      </div>
+      <div class="edu-meta">
+        <div>2023 – 2025</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="container">
+    <p style="margin-bottom: 12px; font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; color: var(--text);">Let's work together.</p>
+    <p><a href="mailto:ponuoha2017@gmail.com">ponuoha2017@gmail.com</a> · <a href="https://linkedin.com/in/patrickonuohajr/" target="_blank">LinkedIn</a> · <a href="https://github.com/PatrickOnuohaJr" target="_blank">GitHub</a></p>
+    <p style="margin-top: 24px; color: #333;">Patrick Onuoha Jr · Denton, TX</p>
+  </div>
+</footer>
+
+</body>
+</html>
