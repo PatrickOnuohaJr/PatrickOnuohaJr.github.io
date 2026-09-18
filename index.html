@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Patrick Onuoha Jr — Data Scientist</title>
+  <title>Patrick Onuoha Jr — Technical Product Builder</title>
+  <meta name="description" content="Patrick Onuoha Jr — technical product builder with a data science background, building full-stack systems like Scent Cloud and Cephalon Gu through AI-assisted development.">
+  <meta property="og:title" content="Patrick Onuoha Jr — Technical Product Builder">
+  <meta property="og:description" content="Turning ambiguous problems into working systems, built through AI-assisted development.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Lora:ital@0;1&display=swap" rel="stylesheet">
   <style>
@@ -219,6 +222,26 @@
       letter-spacing: 0.04em;
     }
 
+    /* ABOUT */
+    .about-text {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .about-text strong { color: var(--text); font-weight: 600; }
+
+    .about-text + .about-text { margin-top: 16px; }
+
+    /* PROJECT DESCRIPTION */
+    .project-desc {
+      color: var(--muted);
+      font-size: 12.5px;
+      font-style: italic;
+      margin-bottom: 16px;
+    }
+
     /* SKILLS */
     .skills-grid {
       display: grid;
@@ -424,6 +447,7 @@
     section:nth-child(3) { animation-delay: 0.2s; }
     section:nth-child(4) { animation-delay: 0.3s; }
     section:nth-child(5) { animation-delay: 0.4s; }
+    section:nth-child(6) { animation-delay: 0.5s; }
 
     /* RESPONSIVE */
     @media (max-width: 600px) {
@@ -439,6 +463,7 @@
   <div class="inner">
     <div class="nav-logo">POJ</div>
     <ul class="nav-links">
+      <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#experience">Experience</a></li>
@@ -451,16 +476,24 @@
 
   <!-- HERO -->
   <div class="hero">
-    <p class="hero-eyebrow">Data Scientist · Engineer · Builder</p>
+    <p class="hero-eyebrow">Technical Product Builder · AI-Assisted Development</p>
     <h1>Patrick<br><span>Onuoha Jr</span></h1>
-    <p class="hero-sub">Turning data into decisions — and models into products.</p>
+    <p class="hero-sub">Turning ambiguous problems into working systems.</p>
     <div class="hero-contact">
       <a href="mailto:ponuoha2017@gmail.com" class="contact-chip">✉ ponuoha2017@gmail.com</a>
       <a href="tel:2149002568" class="contact-chip">✆ (214) 900-2568</a>
       <a href="https://linkedin.com/in/patrickonuohajr/" target="_blank" class="contact-chip">↗ LinkedIn</a>
       <a href="https://github.com/PatrickOnuohaJr" target="_blank" class="contact-chip">⌥ GitHub</a>
+      <a href="Patrick_Onuoha_Jr_Resume.pdf" download class="contact-chip">⬇ Resume</a>
     </div>
   </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-label">About</div>
+    <p class="about-text">I'm a <strong>technical product builder</strong> with a data science background. Given an ambiguous problem, I scope it into concrete requirements, model the underlying data, and build a working system around it — using AI-assisted development tools (<strong>Claude Code, Codex, GitHub Copilot</strong>) to implement, test, and iterate quickly.</p>
+    <p class="about-text">My data science training gives me the product and data judgment: how to structure a problem, model relational data, catch data-quality issues, and decide where logic needs to be deterministic versus where an AI feature adds real value. The systems I ship are built through AI-assisted implementation — not solo expert-level coding or custom-trained ML models — and every one is validated end-to-end before I call it done.</p>
+  </section>
 
   <!-- EDUCATION -->
   <section>
@@ -490,28 +523,24 @@
     <div class="section-label">Technical Skills</div>
     <div class="skills-grid">
       <div class="skill-group">
-        <div class="skill-group-label">Languages</div>
-        <p>Python · SQL · R · C++</p>
+        <div class="skill-group-label">Product & Systems</div>
+        <p>Requirements definition · MVP scoping · Relational data modeling · Deterministic rules · Technical debugging</p>
       </div>
       <div class="skill-group">
-        <div class="skill-group-label">ML / Libraries</div>
-        <p>Pandas · NumPy · Scikit-Learn · XGBoost · SHAP · TensorFlow · Streamlit</p>
+        <div class="skill-group-label">AI-Assisted Development</div>
+        <p>Codex · Claude Code · Copilot — prototyping, implementation, testing, and iteration</p>
       </div>
       <div class="skill-group">
-        <div class="skill-group-label">Cloud & Data</div>
-        <p>Databricks · Snowflake · AWS SageMaker · AWS S3 · boto3 · SSMS</p>
+        <div class="skill-group-label">AI-Assisted Implementation Stack</div>
+        <p>React · JavaScript/JSX · TypeScript/Deno · Python/Pandas · SQL/PostgreSQL · Supabase · Vite</p>
       </div>
       <div class="skill-group">
-        <div class="skill-group-label">Visualization</div>
-        <p>Power BI · Tableau · Matplotlib · Seaborn</p>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-label">Dev Tools</div>
-        <p>Git / GitHub · VS Code · Jupyter · RStudio</p>
+        <div class="skill-group-label">Integration & Validation</div>
+        <p>Anthropic multimodal API · REST APIs · OAuth · Row-level security · Unit testing · Git/GitHub</p>
       </div>
       <div class="skill-group">
         <div class="skill-group-label">Certifications</div>
-        <p>Tableau Specialist · UNT Data Analytics Track</p>
+        <p>Tableau Specialist</p>
       </div>
     </div>
   </section>
@@ -519,6 +548,42 @@
   <!-- PROJECTS -->
   <section id="projects">
     <div class="section-label">Technical Projects</div>
+
+    <div class="project">
+      <div class="project-header">
+        <div class="project-title">Scent Cloud</div>
+        <div class="project-date">In development</div>
+      </div>
+      <p class="project-desc">Fragrance collection & decision support · AI-assisted development</p>
+      <div class="project-stack">
+        <span class="tag">React</span><span class="tag">Supabase</span>
+        <span class="tag">Google OAuth</span><span class="tag">TypeScript/Deno</span>
+        <span class="tag">Anthropic Multimodal API</span><span class="tag">PostgreSQL RLS</span>
+      </div>
+      <ul>
+        <li>Built a React/Supabase application with Google OAuth, persistent bottle tracking, and collection-based workflows to help decide what to wear from a personal fragrance collection.</li>
+        <li>Integrated Anthropic multimodal AI recommendations through TypeScript/Deno Edge Functions, using outfit photos and collection data — suggestions are validated against the user's actual collection before being shown.</li>
+        <li>Remediated anonymous collection access with owner-scoped PostgreSQL row-level security while preserving public catalog reads; added deterministic coverage and subset-selection logic with 13 focused tests.</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <div class="project-header">
+        <div class="project-title">Cephalon Gu</div>
+        <div class="project-date">In development</div>
+      </div>
+      <p class="project-desc">Single-user build configuration & analysis platform for Warframe, a live-service video game · AI-assisted development</p>
+      <div class="project-stack">
+        <span class="tag">PostgreSQL</span><span class="tag">Relational Data Modeling</span>
+        <span class="tag">Deterministic Logic</span><span class="tag">API Debugging</span>
+        <span class="tag">Pagination</span>
+      </div>
+      <ul>
+        <li>Modeled 255 reusable skill/ability definitions and 2,206 associated parameter records in PostgreSQL, separating shared reference data from a player's own configuration state while preserving data provenance and explicitly tracking unknown values.</li>
+        <li>Implemented deterministic (rule-based, not machine-learning) calculations for upgrade costs, equipment stats, and several nonlinear scaling rules, using shared utility functions and explicit exceptions for special-case formulas.</li>
+        <li>Investigated duplicate-name data collisions and a silent API truncation bug in the game's public data source, recovering 87 historical upgrade records that had been silently dropped, and built reusable pagination to prevent recurrence on large catalog queries.</li>
+      </ul>
+    </div>
 
     <div class="project">
       <div class="project-header">
@@ -539,44 +604,6 @@
         <li>A/B simulation across 3 levers reduced unavailability from 8.75% → 3.38% (zero CapEx), recovering ~16,400 trips annually.</li>
       </ul>
     </div>
-
-    <div class="project">
-      <div class="project-header">
-        <div class="project-title">Customer Churn Prediction System</div>
-        <div class="project-date">Jan 2025 – Apr 2026</div>
-      </div>
-      <div class="project-stack">
-        <span class="tag">Python</span><span class="tag">XGBoost</span>
-        <span class="tag">SHAP</span><span class="tag">Scikit-Learn</span>
-        <span class="tag">SMOTE</span><span class="tag">Streamlit</span>
-        <span class="tag">GitHub</span>
-      </div>
-      <ul>
-        <li>Built end-to-end churn prediction system on 7,032 telecom customers — ROC-AUC 0.841, F1 0.618 via tuned XGBoost with 5-fold stratified cross-validation.</li>
-        <li>Applied SMOTE for linear models and scale_pos_weight for XGBoost to handle class imbalance; GridSearchCV tuning across all three model baselines.</li>
-        <li>Implemented SHAP explainability — month-to-month contract (+0.69) and short tenure (+0.85) identified as dominant churn drivers.</li>
-        <li>Deployed live Streamlit app with real-time churn risk scoring, three-tier classification, and dynamic SHAP explanations.</li>
-      </ul>
-    </div>
-
-    <div class="project">
-      <div class="project-header">
-        <div class="project-title">Hotel Campaign Keyword Intelligence Engine</div>
-        <div class="project-date">Jun – Jul 2026</div>
-      </div>
-      <div class="project-stack">
-        <span class="tag">Python</span><span class="tag">Pandas</span>
-        <span class="tag">OpenPyXL</span><span class="tag">Git</span>
-        <span class="tag">CLI</span>
-      </div>
-      <ul>
-        <li>Built a Python pipeline (CLI, Pandas, OpenPyXL, Git, unit tests) converting AI-generated ad copy into reusable keyword libraries, designed to scale keyword generation across a 7,000+ property campaign migration for an enterprise hospitality client.</li>
-        <li>Shipped through two iterations (v0.1 CSV ingestion/validation/export, v0.2 phrase-first extraction with generic-language suppression) and mapped a v0.5 roadmap for a multi-agent architecture.</li>
-        <li>Identified that properties split into three natural tiers by description richness, and engineered a tiered classification system so low-signal edge cases got a different generation strategy instead of more of the same automation.</li>
-        <li>Piloted an example-driven feedback loop where manually solved edge cases became permanent prompt examples, an early human-in-the-loop system designed to make every future generation a little better than the last.</li>
-        <li>Case study only — built on employer infrastructure and client data, so implementation code isn't public.</li>
-      </ul>
-    </div>
   </section>
 
   <!-- EXPERIENCE -->
@@ -591,9 +618,9 @@
       <div class="exp-role">Data & Marketing Analytics Intern, Impact Program</div>
       <div class="exp-date">June 2026 – July 2026</div>
       <ul class="exp-list">
-        <li>Built a Python-based keyword intelligence pipeline (CLI, Pandas, OpenPyXL, Git) converting AI-generated ad copy into reusable keyword libraries, with a tiered classification system to handle low-signal edge cases, designed to scale across a 7,000+ property campaign migration.</li>
-        <li>Designed an 8-stage Excel-based classification and QA framework standardizing campaign mapping across 1,100+ live search campaigns via rule-based precedence, conflict detection, and confidence scoring.</li>
-        <li>Investigated a reporting population discrepancy across three independent data sources and defined the resulting business rule adopted into production reporting.</li>
+        <li>Developed the campaign-mapping workflow for an IHG migration workload of 1,100+ campaigns, translating subject-matter expertise into classification rules, normalization logic, conflict detection, and analyst QA.</li>
+        <li>Built and owned an AI-assisted keyword-intelligence prototype using Python, Pandas, OpenPyXL, Git, and Codex to transform hotel ad-copy outputs into keyword libraries through schema detection, phrase extraction, validation, scoring, and Excel export.</li>
+        <li>Iterated automation across Gemini, Google Sheets/Apps Script, Excel, and Copilot, adapting the implementation after execution bottlenecks and designing review workflows for ambiguous campaign records.</li>
       </ul>
     </div>
 
@@ -625,19 +652,6 @@
         <li>Mentored junior analysts on data governance, SQL queries, and BI dashboarding.</li>
       </ul>
     </div>
-
-    <div class="experience">
-      <div class="exp-header">
-        <div class="exp-company">Independent Contractor</div>
-        <div class="exp-location"></div>
-      </div>
-      <div class="exp-role">Data & Business Intelligence Analyst</div>
-      <div class="exp-date">Jan 2018 – Oct 2020</div>
-      <ul class="exp-list">
-        <li>Developed automated Excel and SQL reporting pipelines for small businesses, improving data accuracy and turnaround time.</li>
-        <li>Built custom KPI dashboards in Power BI and Tableau to support financial and operational decision-making.</li>
-      </ul>
-    </div>
   </section>
 
 
@@ -648,7 +662,7 @@
   <div class="container">
     <p style="margin-bottom: 12px; font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; color: var(--text);">Let's work together.</p>
     <p><a href="mailto:ponuoha2017@gmail.com">ponuoha2017@gmail.com</a> · <a href="https://linkedin.com/in/patrickonuohajr/" target="_blank">LinkedIn</a> · <a href="https://github.com/PatrickOnuohaJr" target="_blank">GitHub</a></p>
-    <p style="margin-top: 24px; color: #333;">Patrick Onuoha Jr · Denton, TX</p>
+    <p style="margin-top: 24px; color: #333;">Patrick Onuoha Jr · Fort Worth, TX</p>
   </div>
 </footer>
 
